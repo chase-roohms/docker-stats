@@ -1,0 +1,15 @@
+{
+  "last_updated": "2026-01-13T16:31:18.019605+00:00",
+  "repositories": {
+    "neonvariant/mythicmate": {
+      "pull_count": 199,
+      "description": "A D&D Discord bot that facilitates dice rolling and rules referencing.",
+      "last_updated": "2026-01-13T05:30:55.881127Z"
+    },
+    "neonvariant/dumpsterr": {
+      "pull_count": 530,
+      "description": "Safely empties your Plex trash, verifying file availability before doing so.",
+      "last_updated": "2026-01-12T04:09:32.243143Z"
+    }
+  }
+}
