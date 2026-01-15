@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-01-14T18:04:54.481359+00:00",
+  "last_updated": "2026-01-15T00:12:45.260219+00:00",
   "repositories": {
     "neonvariant/mythicmate": {
-      "pull_count": 363,
+      "pull_count": 380,
       "description": "A D&D Discord bot that facilitates dice rolling and rules referencing.",
       "last_updated": "2026-01-14T04:07:08.811234Z"
     },
