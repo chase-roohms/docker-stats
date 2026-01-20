@@ -438,3 +438,17 @@ class GitHubRestApi:
         """
         repo_data = self.get_repo(repo, owner)
         return repo_data.get("description", "")
+    
+    def get_repo_last_pushed(self, repo: str, owner: str = None) -> str:
+        """
+        Get the last pushed timestamp of a GitHub repository.
+        
+        Args:
+            owner: The owner of the repository
+            repo: The name of the repository
+            
+        Returns:
+            Last pushed timestamp
+        """
+        repo_data = self.get_repo(repo, owner)
+        return repo_data.get("pushed_at", "")

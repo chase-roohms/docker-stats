@@ -38,13 +38,15 @@ def main():
             open_issues = requester.get_repo_open_issues_count(repo=repo)
             sum_open_issues += open_issues
             description = requester.get_repo_description(repo=repo)
+            last_pushed = requester.get_repo_last_pushed(repo=repo)
             
             new_repositories[repo] = {
                 "stars": stars,
                 "forks": forks,
                 "watchers": watchers,
                 "open_issues": open_issues,
-                "description": description
+                "description": description,
+                "last_updated": last_pushed
             }
             print(f"  ✓ {repo}: {stars} stars, {forks} forks")
         except Exception as e:
