@@ -425,4 +425,16 @@ class GitHubRestApi:
         repo_data = self.get_repo(repo, owner)
         return repo_data.get("open_issues_count", 0)
     
-    
+    def get_repo_description(self, repo: str, owner: str = None) -> str:
+        """
+        Get the description of a GitHub repository.
+        
+        Args:
+            owner: The owner of the repository
+            repo: The name of the repository
+            
+        Returns:
+            Repository description
+        """
+        repo_data = self.get_repo(repo, owner)
+        return repo_data.get("description", "")
