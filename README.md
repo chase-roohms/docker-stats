@@ -23,7 +23,7 @@ This repository fetches statistics from Docker Hub and GitHub every 6 hours via 
 ## Project Structure
 
 ```
-docker-stats/
+dev-stats/
 ├── src/
 │   ├── fetch-dockerhub-stats.py  # Fetch Docker Hub statistics
 │   ├── fetch-github-stats.py     # Fetch GitHub statistics
@@ -110,7 +110,7 @@ Both scripts run every 6 hours via GitHub Actions to keep statistics current.
     "total_open_issues": 5
   },
   "repositories": {
-    "docker-stats": {
+    "dev-stats": {
       "stars": 10,
       "forks": 2,
       "watchers": 5,
