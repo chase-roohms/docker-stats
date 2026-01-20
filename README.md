@@ -1,6 +1,6 @@
-# docker-stats
+# dev-stats
 
-Automated tracking of statistics for Docker Hub images and GitHub repositories.
+Automated tracking of statistics for my Docker Hub images and GitHub repositories.
 
 ## Overview
 
