@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-20T18:14:34.707677+00:00",
+  "last_updated": "2026-01-20T19:24:48.652046+00:00",
   "totals": {
     "total_stars": 27,
     "total_forks": 1,
@@ -29,7 +29,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Personal portfolio website built using Vite + React 18 + TypeScript",
-      "last_updated": "2026-01-20T16:51:56Z"
+      "last_updated": "2026-01-20T18:44:20Z"
     },
     "chase-roohms/de-vex": {
       "stars": 0,
@@ -38,6 +38,14 @@
       "open_issues": 0,
       "description": "Translates VEX JSON files to human readable text, saving them into a text file for easy review.",
       "last_updated": "2024-07-25T16:56:27Z"
+    },
+    "chase-roohms/dev-stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "open_issues": 0,
+      "description": "Automated pulling / recording of docker hub pulls for use with my website. Works as a sort of CORS proxy, caching the number of pulls every 6 hours",
+      "last_updated": "2026-01-20T18:45:54Z"
     },
     "chase-roohms/discord-notify": {
       "stars": 0,
@@ -55,21 +63,13 @@
       "description": "Central management of my docker-compose files across multiple systems",
       "last_updated": "2026-01-20T17:48:50Z"
     },
-    "chase-roohms/docker-stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "open_issues": 0,
-      "description": "Automated pulling / recording of docker hub pulls for use with my website. Works as a sort of CORS proxy, caching the number of pulls every 6 hours",
-      "last_updated": "2026-01-20T16:36:09Z"
-    },
     "chase-roohms/dumpsterr": {
       "stars": 19,
       "forks": 0,
       "watchers": 19,
       "open_issues": 0,
       "description": "Safely empties your Plex trash, verifying file availability before doing so. Prevents unintentional deletion of movies and shows when drives are disconnected.",
-      "last_updated": "2026-01-20T18:11:07Z"
+      "last_updated": "2026-01-20T19:23:23Z"
     },
     "chase-roohms/Heap_PriorityQueue_Implementation": {
       "stars": 0,
