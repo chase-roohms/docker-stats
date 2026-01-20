@@ -27,7 +27,7 @@ def main():
     sum_open_issues = 0
     
     for repo in repo_names:
-        print(f"Fetching stats for {repo}...")
+        print(f"Fetching stats for {requester.owner}/{repo}...")
         try:
             stars = requester.get_repo_star_count(repo=repo)
             sum_stars += stars
@@ -40,7 +40,7 @@ def main():
             description = requester.get_repo_description(repo=repo)
             last_pushed = requester.get_repo_last_pushed(repo=repo)
             
-            new_repositories[repo] = {
+            new_repositories[f'{requester.owner}/{repo}'] = {
                 "stars": stars,
                 "forks": forks,
                 "watchers": watchers,
@@ -48,10 +48,10 @@ def main():
                 "description": description,
                 "last_updated": last_pushed
             }
-            print(f"  ✓ {repo}: {stars} stars, {forks} forks")
+            print(f"  ✓ {requester.owner}/{repo}: {stars} stars, {forks} forks")
         except Exception as e:
-            print(f"  ✗ Error fetching {repo}: {e}")
-            new_repositories[repo] = {
+            print(f"  ✗ Error fetching {requester.owner}/{repo}: {e}")
+            new_repositories[f'{requester.owner}/{repo}'] = {
                 "error": str(e)
             }
     
