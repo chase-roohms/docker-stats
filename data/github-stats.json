@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-01-20T19:24:48.652046+00:00",
+  "last_updated": "2026-01-21T00:37:39.760644+00:00",
   "totals": {
-    "total_stars": 27,
+    "total_stars": 28,
     "total_forks": 1,
-    "total_watchers": 27,
-    "total_open_issues": 0
+    "total_watchers": 28,
+    "total_open_issues": 1
   },
   "repositories": {
     "chase-roohms/BinarySearchTree_Implementation": {
@@ -45,7 +45,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Automated pulling / recording of docker hub pulls for use with my website. Works as a sort of CORS proxy, caching the number of pulls every 6 hours",
-      "last_updated": "2026-01-20T18:45:54Z"
+      "last_updated": "2026-01-20T19:24:49Z"
     },
     "chase-roohms/discord-notify": {
       "stars": 0,
@@ -53,7 +53,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Send a message to a discord webhook with support for embeds and embed updates",
-      "last_updated": "2026-01-15T05:53:06Z"
+      "last_updated": "2026-01-20T20:57:37Z"
     },
     "chase-roohms/docker-compose": {
       "stars": 0,
@@ -64,12 +64,12 @@
       "last_updated": "2026-01-20T17:48:50Z"
     },
     "chase-roohms/dumpsterr": {
-      "stars": 19,
+      "stars": 20,
       "forks": 0,
-      "watchers": 19,
-      "open_issues": 0,
+      "watchers": 20,
+      "open_issues": 1,
       "description": "Safely empties your Plex trash, verifying file availability before doing so. Prevents unintentional deletion of movies and shows when drives are disconnected.",
-      "last_updated": "2026-01-20T19:23:23Z"
+      "last_updated": "2026-01-20T20:14:35Z"
     },
     "chase-roohms/Heap_PriorityQueue_Implementation": {
       "stars": 0,
@@ -93,7 +93,7 @@
       "watchers": 4,
       "open_issues": 0,
       "description": "Collection of configuration files for use in Kometa, manages metadata, playlists, collections, etc. for a Plex instance",
-      "last_updated": "2026-01-20T05:51:04Z"
+      "last_updated": "2026-01-20T21:04:31Z"
     },
     "chase-roohms/looney-tunes-assets": {
       "stars": 0,
