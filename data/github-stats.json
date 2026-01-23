@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-23T00:37:32.205383+00:00",
+  "last_updated": "2026-01-23T06:13:44.467197+00:00",
   "totals": {
     "total_stars": 28,
     "total_forks": 1,
@@ -29,7 +29,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Personal portfolio website built using Vite + React 18 + TypeScript",
-      "last_updated": "2026-01-22T22:32:36Z"
+      "last_updated": "2026-01-23T04:33:17Z"
     },
     "chase-roohms/de-vex": {
       "stars": 0,
@@ -45,7 +45,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Automated tracking of Docker Hub pulls and GitHub stars for use with my website. Works as a sort of CORS proxy, caching the stats every 6 hours",
-      "last_updated": "2026-01-22T18:12:20Z"
+      "last_updated": "2026-01-23T00:37:32Z"
     },
     "chase-roohms/discord-birthday-wishes": {
       "stars": 0,
@@ -158,6 +158,14 @@
       "open_issues": 0,
       "description": "Tool(s) for use in my poster creation projects, check me out at the link below!",
       "last_updated": "2025-12-31T00:33:43Z"
+    },
+    "chase-roohms/python-template": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "open_issues": 0,
+      "description": "Generic template for my python projects in an effort to maintain common structure & practices",
+      "last_updated": "2026-01-23T04:21:15Z"
     },
     "chase-roohms/Qarth": {
       "stars": 0,
