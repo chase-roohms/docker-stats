@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-01-22T18:12:20.157930+00:00",
+  "last_updated": "2026-01-23T00:37:32.205383+00:00",
   "totals": {
     "total_stars": 28,
     "total_forks": 1,
     "total_watchers": 28,
-    "total_open_issues": 1
+    "total_open_issues": 0
   },
   "repositories": {
     "chase-roohms/BinarySearchTree_Implementation": {
@@ -29,7 +29,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Personal portfolio website built using Vite + React 18 + TypeScript",
-      "last_updated": "2026-01-20T18:44:20Z"
+      "last_updated": "2026-01-22T22:32:36Z"
     },
     "chase-roohms/de-vex": {
       "stars": 0,
@@ -44,8 +44,8 @@
       "forks": 0,
       "watchers": 0,
       "open_issues": 0,
-      "description": "Automated pulling / recording of docker hub pulls for use with my website. Works as a sort of CORS proxy, caching the number of pulls every 6 hours",
-      "last_updated": "2026-01-22T12:17:07Z"
+      "description": "Automated tracking of Docker Hub pulls and GitHub stars for use with my website. Works as a sort of CORS proxy, caching the stats every 6 hours",
+      "last_updated": "2026-01-22T18:12:20Z"
     },
     "chase-roohms/discord-birthday-wishes": {
       "stars": 0,
@@ -61,7 +61,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Send a message to a discord webhook with support for embeds and embed updates",
-      "last_updated": "2026-01-20T20:57:37Z"
+      "last_updated": "2026-01-22T21:46:20Z"
     },
     "chase-roohms/docker-compose": {
       "stars": 0,
@@ -75,9 +75,9 @@
       "stars": 20,
       "forks": 0,
       "watchers": 20,
-      "open_issues": 1,
+      "open_issues": 0,
       "description": "Safely empties your Plex trash, verifying file availability before doing so. Prevents unintentional deletion of movies and shows when drives are disconnected.",
-      "last_updated": "2026-01-20T20:14:35Z"
+      "last_updated": "2026-01-22T21:57:26Z"
     },
     "chase-roohms/Heap_PriorityQueue_Implementation": {
       "stars": 0,
@@ -101,7 +101,7 @@
       "watchers": 4,
       "open_issues": 0,
       "description": "Collection of configuration files for use in Kometa, manages metadata, playlists, collections, etc. for a Plex instance",
-      "last_updated": "2026-01-21T18:19:14Z"
+      "last_updated": "2026-01-22T20:31:37Z"
     },
     "chase-roohms/looney-tunes-assets": {
       "stars": 0,
