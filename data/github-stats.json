@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-25T12:14:34.226981+00:00",
+  "last_updated": "2026-01-25T18:11:39.701318+00:00",
   "totals": {
     "total_stars": 28,
     "total_forks": 1,
@@ -45,7 +45,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Automated tracking of Docker Hub pulls and GitHub stars for use with my website. Works as a sort of CORS proxy, caching the stats every 6 hours",
-      "last_updated": "2026-01-25T06:12:33Z"
+      "last_updated": "2026-01-25T12:14:34Z"
     },
     "chase-roohms/discord-birthday-wishes": {
       "stars": 0,
@@ -101,7 +101,7 @@
       "watchers": 4,
       "open_issues": 0,
       "description": "Collection of configuration files for use in Kometa, manages metadata, playlists, collections, etc. for a Plex instance",
-      "last_updated": "2026-01-24T16:44:57Z"
+      "last_updated": "2026-01-25T17:47:18Z"
     },
     "chase-roohms/looney-tunes-assets": {
       "stars": 0,
