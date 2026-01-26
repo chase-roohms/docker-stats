@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-25T18:11:39.701318+00:00",
+  "last_updated": "2026-01-26T00:40:16.750890+00:00",
   "totals": {
     "total_stars": 28,
     "total_forks": 1,
@@ -31,6 +31,14 @@
       "description": "Personal portfolio website built using Vite + React 18 + TypeScript",
       "last_updated": "2026-01-23T04:33:17Z"
     },
+    "chase-roohms/cloudflare-error-worker": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "open_issues": 0,
+      "description": "Error handler for cloudflare to serve custom error pages to my users",
+      "last_updated": "2026-01-25T21:26:44Z"
+    },
     "chase-roohms/de-vex": {
       "stars": 0,
       "forks": 0,
@@ -45,7 +53,7 @@
       "watchers": 0,
       "open_issues": 0,
       "description": "Automated tracking of Docker Hub pulls and GitHub stars for use with my website. Works as a sort of CORS proxy, caching the stats every 6 hours",
-      "last_updated": "2026-01-25T12:14:34Z"
+      "last_updated": "2026-01-25T18:11:40Z"
     },
     "chase-roohms/discord-birthday-wishes": {
       "stars": 0,
@@ -101,7 +109,7 @@
       "watchers": 4,
       "open_issues": 0,
       "description": "Collection of configuration files for use in Kometa, manages metadata, playlists, collections, etc. for a Plex instance",
-      "last_updated": "2026-01-25T17:47:18Z"
+      "last_updated": "2026-01-25T23:09:26Z"
     },
     "chase-roohms/looney-tunes-assets": {
       "stars": 0,
