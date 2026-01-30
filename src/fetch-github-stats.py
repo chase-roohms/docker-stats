@@ -17,7 +17,7 @@ def main():
     
     requester = gh_api.GitHubRestApi(owner="chase-roohms")
     repos = requester.get_all_repos_for_user()
-    repo_names = [repo["name"] for repo in repos]
+    repo_names = [repo["name"] for repo in repos if repo["name"] != "dev-stats"]
     
     # Fetch stats for each repo
     new_repositories = {}
