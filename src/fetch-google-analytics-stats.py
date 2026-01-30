@@ -9,9 +9,9 @@ from datetime import datetime, UTC
 
 def main():
     # Configuration
-    # TODO: Replace with your GA4 property ID
-    property_id = os.environ.get("GA4_PROPERTY_ID", "YOUR_PROPERTY_ID")
-    
+    property_id = os.environ.get("GA4_PROPERTY_ID", None)
+    if not property_id:
+        raise ValueError("GA4_PROPERTY_ID environment variable is not set.")
     # Credentials: supports both file path (local) and JSON string (CI/CD)
     credentials_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", None)
     credentials_json = os.environ.get("GOOGLE_CREDENTIALS_JSON", None)

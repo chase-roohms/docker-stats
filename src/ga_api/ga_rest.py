@@ -50,32 +50,44 @@ class GoogleAnalyticsApi:
             from google.analytics.data_v1beta import BetaAnalyticsDataClient
             from google.oauth2 import service_account
             import json as json_module
+            import os
             
             credentials = None
             
-            # Priority: credentials_json > credentials_path > default
+            # Priority: credentials_json > credentials_path (only if valid) > default
             if self.credentials_json:
-                # Load credentials from JSON string (for CI/CD)
+                # Load credentials from JSON string (for CI/CD with service account keys)
                 credentials_info = json_module.loads(self.credentials_json)
                 credentials = service_account.Credentials.from_service_account_info(
                     credentials_info,
                     scopes=['https://www.googleapis.com/auth/analytics.readonly']
                 )
                 logger.info("Loaded credentials from JSON string")
-            elif self.credentials_path:
-                # Load credentials from file (for local development)
-                credentials = service_account.Credentials.from_service_account_file(
-                    self.credentials_path,
-                    scopes=['https://www.googleapis.com/auth/analytics.readonly']
-                )
-                logger.info(f"Loaded credentials from file: {self.credentials_path}")
+            elif self.credentials_path and os.path.exists(self.credentials_path):
+                # Check if it's a valid service account key file
+                try:
+                    with open(self.credentials_path, 'r') as f:
+                        key_data = json_module.load(f)
+                    
+                    # Only use it if it has service account key fields
+                    if 'client_email' in key_data and 'token_uri' in key_data:
+                        credentials = service_account.Credentials.from_service_account_file(
+                            self.credentials_path,
+                            scopes=['https://www.googleapis.com/auth/analytics.readonly']
+                        )
+                        logger.info(f"Loaded service account credentials from file: {self.credentials_path}")
+                    else:
+                        # It's a workload identity federation credentials file, use default
+                        logger.info("Credentials file is for Workload Identity Federation, using default credentials")
+                except (json_module.JSONDecodeError, KeyError):
+                    logger.info("Credentials file is not a service account key, using default credentials")
             
             if credentials:
                 self.client = BetaAnalyticsDataClient(credentials=credentials)
             else:
-                # Use default credentials (from environment)
+                # Use default credentials (from environment, including Workload Identity Federation)
                 self.client = BetaAnalyticsDataClient()
-                logger.info("Using default credentials from environment")
+                logger.info("Using default credentials from environment (e.g., Workload Identity Federation)")
                 
             logger.info("Successfully initialized Google Analytics Data API client")
         except ImportError:
