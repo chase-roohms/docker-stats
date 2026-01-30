@@ -136,6 +136,10 @@ This is the most secure method as it doesn't require storing service account key
    echo "Project ID: ${PROJECT_ID}"
    echo "Project Number: ${PROJECT_NUMBER}"
    
+   # Enable required APIs
+   gcloud services enable iamcredentials.googleapis.com --project="${PROJECT_ID}"
+   gcloud services enable analyticsdata.googleapis.com --project="${PROJECT_ID}"
+   
    # Create Workload Identity Pool
    gcloud iam workload-identity-pools create "${WORKLOAD_IDENTITY_POOL}" \
      --project="${PROJECT_ID}" \

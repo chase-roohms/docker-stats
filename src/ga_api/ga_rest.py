@@ -192,22 +192,26 @@ class GoogleAnalyticsApi:
     def get_blog_post_views(self, blog_path_prefix: str = "/blog/", date_range_days: Optional[int] = None) -> Dict[str, int]:
         """
         Get page view counts for all blog posts (pages starting with a specific prefix).
+        Normalizes paths to always include trailing slashes and combines duplicates.
         
         Args:
             blog_path_prefix: The path prefix for blog posts (default: "/blog/")
             date_range_days: Number of days to look back (None = all time)
         
         Returns:
-            Dictionary mapping blog post paths to page view counts
+            Dictionary mapping blog post paths (with trailing slashes) to page view counts
         """
         all_page_views = self.get_all_page_views(date_range_days)
         
-        # Filter for blog posts
-        blog_views = {
-            path: views 
-            for path, views in all_page_views.items() 
-            if path.startswith(blog_path_prefix)
-        }
+        # Filter for blog posts and normalize paths to have trailing slashes
+        blog_views = {}
+        for path, views in all_page_views.items():
+            if path.startswith(blog_path_prefix):
+                # Normalize: ensure trailing slash for all paths
+                normalized_path = path if path.endswith('/') else path + '/'
+                
+                # Combine views for paths with/without trailing slash
+                blog_views[normalized_path] = blog_views.get(normalized_path, 0) + views
         
         logger.info(f"Found {len(blog_views)} blog posts with prefix '{blog_path_prefix}'")
         return blog_views
