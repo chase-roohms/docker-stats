@@ -31,17 +31,5 @@
       "page_views": 4,
       "last_fetched": "2026-01-30T15:41:56.508206+00:00"
     }
-  },
-  "history": [
-    {
-      "timestamp": "2026-01-30T15:39:30.235814+00:00",
-      "total_blog_posts": 9,
-      "total_page_views": 249
-    },
-    {
-      "timestamp": "2026-01-30T15:41:56.508209+00:00",
-      "total_blog_posts": 6,
-      "total_page_views": 249
-    }
-  ]
+  }
 }

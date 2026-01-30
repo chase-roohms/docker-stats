@@ -62,22 +62,6 @@ def main():
         "blog_posts": new_blog_posts
     }
     
-    # Add history tracking
-    if old_stats and "history" in old_stats:
-        history = old_stats["history"]
-    else:
-        history = []
-    
-    # Add current snapshot to history
-    history.append({
-        "timestamp": new_stats["last_updated"],
-        "total_blog_posts": new_stats["totals"]["total_blog_posts"],
-        "total_page_views": new_stats["totals"]["total_page_views"]
-    })
-    
-    # Keep only last 100 history entries
-    new_stats["history"] = history[-100:]
-    
     # Save stats to file
     os.makedirs(os.path.dirname(stats_file), exist_ok=True)
     with open(stats_file, 'w') as f:

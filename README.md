@@ -198,25 +198,18 @@ Both scripts run every 6 hours via GitHub Actions to keep statistics current.
 ```json
 {
   "last_updated": "2026-01-30T12:00:00Z",
-  "property_id": "123456789",
+  "property_id": "516541379",
   "blog_path_prefix": "/blog/",
   "totals": {
     "total_blog_posts": 25,
     "total_page_views": 50000
   },
   "blog_posts": {
-    "/blog/my-first-post": {
+    "/blog/my-first-post/": {
       "page_views": 5000,
       "last_fetched": "2026-01-30T12:00:00Z"
     }
-  },
-  "history": [
-    {
-      "timestamp": "2026-01-30T12:00:00Z",
-      "total_blog_posts": 25,
-      "total_page_views": 50000
-    }
-  ]
+  }
 }
 ```
 
