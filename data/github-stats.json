@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-30T15:49:39.830092+00:00",
+  "last_updated": "2026-01-30T15:51:01.063432+00:00",
   "totals": {
     "total_stars": 29,
     "total_forks": 1,
@@ -46,14 +46,6 @@
       "open_issues": 0,
       "description": "Translates VEX JSON files to human readable text, saving them into a text file for easy review.",
       "last_updated": "2024-07-25T16:56:27Z"
-    },
-    "chase-roohms/dev-stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "open_issues": 0,
-      "description": "Automated tracking of Docker Hub pulls and GitHub stars for use with my website. Works as a sort of CORS proxy, caching the stats every 6 hours",
-      "last_updated": "2026-01-30T15:49:05Z"
     },
     "chase-roohms/discord-birthday-wishes": {
       "stars": 0,
