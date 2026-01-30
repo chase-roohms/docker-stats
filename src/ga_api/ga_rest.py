@@ -210,6 +210,10 @@ class GoogleAnalyticsApi:
                 # Normalize: ensure trailing slash for all paths
                 normalized_path = path if path.endswith('/') else path + '/'
                 
+                # Skip the root blog page itself (e.g., "/blog/")
+                if normalized_path == blog_path_prefix:
+                    continue
+                
                 # Combine views for paths with/without trailing slash
                 blog_views[normalized_path] = blog_views.get(normalized_path, 0) + views
         
