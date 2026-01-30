@@ -46,19 +46,26 @@ def main():
         total_views += views
         
         new_blog_posts[page_path] = {
-            "page_views": views,
-            "last_fetched": datetime.now(UTC).isoformat()
+            "page_views": views
         }
+    
+    # Calculate totals
+    totals = {
+        "total_blog_posts": len(blog_views),
+        "total_page_views": total_views
+    }
+    
+    # Check if there are any actual changes to blog post data
+    old_blog_posts = old_stats.get("blog_posts", {})
+    old_totals = old_stats.get("totals", {})
+    has_changes = new_blog_posts != old_blog_posts or totals != old_totals
     
     # Build the complete stats object
     new_stats = {
-        "last_updated": datetime.now(UTC).isoformat(),
+        "last_updated": datetime.now(UTC).isoformat() if has_changes else old_stats.get("last_updated", datetime.now(UTC).isoformat()),
         "property_id": property_id,
         "blog_path_prefix": blog_path_prefix,
-        "totals": {
-            "total_blog_posts": len(blog_views),
-            "total_page_views": total_views
-        },
+        "totals": totals,
         "blog_posts": new_blog_posts
     }
     
@@ -72,10 +79,14 @@ def main():
     print(f"  Total blog posts: {new_stats['totals']['total_blog_posts']}")
     print(f"  Total page views: {new_stats['totals']['total_page_views']:,}")
     print(f"{'='*60}")
-    print(f"\nStats saved to {stats_file}")
+    
+    if has_changes:
+        print(f"\nChanges detected! Stats saved to {stats_file}")
+    else:
+        print(f"\nNo changes detected. {stats_file} unchanged.")
     
     # Show changes if old stats exist
-    if old_stats and "totals" in old_stats:
+    if old_stats and "totals" in old_stats and has_changes:
         old_total_views = old_stats["totals"].get("total_page_views", 0)
         old_total_posts = old_stats["totals"].get("total_blog_posts", 0)
         

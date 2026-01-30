@@ -206,8 +206,7 @@ Both scripts run every 6 hours via GitHub Actions to keep statistics current.
   },
   "blog_posts": {
     "/blog/my-first-post/": {
-      "page_views": 5000,
-      "last_fetched": "2026-01-30T12:00:00Z"
+      "page_views": 5000
     }
   }
 }
