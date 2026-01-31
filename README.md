@@ -23,7 +23,6 @@ This repository fetches statistics from Docker Hub, GitHub, and Google Analytics
 - **Google Analytics Stats**: Fetches page view statistics for blog posts
   - Total page views per blog post
   - All-time statistics
-  - Historical tracking
 
 ## Project Structure
 
@@ -77,7 +76,12 @@ cd src
 python fetch-github-stats.py
 ```
 
-ConfGoogle Analytics Statistics
+Configure the user in `src/fetch-github-stats.py`:
+```python
+owner = "chase-roohms"  # Change to your GitHub username
+```
+
+### Google Analytics Statistics
 
 Fetches page view statistics for blog posts:
 
@@ -96,8 +100,8 @@ export GA4_PROPERTY_ID="123456789"
 # For local development: Path to service account credentials JSON file
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/credentials.json"
 
-# For GitHub Actions: Service account credentials as JSON string
-export GOOGLE_CREDENTIALS_JSON='{"type":"service_account","project_id":"..."}'
+# For GitHub Actions: Uses Workload Identity Federation (OIDC)
+# No credentials needed - authentication handled automatically via OIDC token exchange
 
 # Optional: Blog path prefix (default: "/blog/")
 export BLOG_PATH_PREFIX="/blog/"
@@ -131,7 +135,7 @@ This is the most secure method as it doesn't require storing service account key
    SERVICE_ACCOUNT="analytics-reader@${PROJECT_ID}.iam.gserviceaccount.com"
    WORKLOAD_IDENTITY_POOL="github-pool"
    WORKLOAD_IDENTITY_PROVIDER="github-provider"
-   REPO="chase-roohms/dev-stats"  # Your GitHub repo
+   REPO="chase-roohms/dev-stats"
    
    echo "Project ID: ${PROJECT_ID}"
    echo "Project Number: ${PROJECT_NUMBER}"
@@ -153,7 +157,7 @@ This is the most secure method as it doesn't require storing service account key
      --workload-identity-pool="${WORKLOAD_IDENTITY_POOL}" \
      --display-name="GitHub Provider" \
      --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.repository=assertion.repository,attribute.repository_owner=assertion.repository_owner" \
-     --attribute-condition="assertion.repository == 'chase-roohms/dev-stats'" \
+     --attribute-condition="assertion.repository == '$REPO'" \
      --issuer-uri="https://token.actions.githubusercontent.com"
    
    # Allow the GitHub repo to impersonate the service account
@@ -186,12 +190,30 @@ If you can't use Workload Identity Federation:
 
 ### Automated Updates
 
-Allester = gh_api.GitHubRestApi(owner="chase-roohms")
+All three scripts run every 6 hours via GitHub Actions to keep statistics current.
+
+## Output Format
+
+### Docker Hub Stats (`data/dockerhub-stats.json`)
+
+```json
+{
+  "last_updated": "2026-01-20T12:00:00Z",
+  "namespace": "neonvariant",
+  "totals": {
+    "total_pulls": 5000,
+    "total_stars": 25
+  },
+  "repositories": {
+    "neonvariant/mythicmate": {
+      "pull_count": 3000,
+      "star_count": 15,
+      "description": "Repository description",
+      "last_updated": "2026-01-20T10:00:00Z"
+    }
+  }
+}
 ```
-
-### Automated Updates
-
-Both scripts run every 6 hours via GitHub Actions to keep statistics current.
 
 ### Google Analytics Stats (`data/google-analytics-stats.json`)
 
@@ -207,29 +229,6 @@ Both scripts run every 6 hours via GitHub Actions to keep statistics current.
   "blog_posts": {
     "/blog/my-first-post/": {
       "page_views": 5000
-    }
-  }
-}
-```
-
-## API Modules
-
-All three API modules feature:
-- Rate limiting with automatic backoff
-- Request retry logic with exponential backoff (GitHub/Docker Hub)
-- Data caching (5-minute TTL)
-- Comprehensive logging
-
-The Google Analytics module uses the official `google-analytics-data` Python client library.
-    "total_pulls": 5000,
-    "total_stars": 25
-  },
-  "repositories": {
-    "neonvariant/mythicmate": {
-      "pull_count": 3000,
-      "star_count": 15,
-      "description": "Repository description",
-      "last_updated": "2026-01-20T10:00:00Z"
     }
   }
 }
@@ -260,9 +259,11 @@ The Google Analytics module uses the official `google-analytics-data` Python cli
 
 ## API Modules
 
-Both API modules feature:
+All three API modules feature:
 - Rate limiting with automatic backoff
-- Request retry logic with exponential backoff
-- Repository data caching (5-minute TTL)
-- Context manager support for proper session cleanup
+- Request retry logic with exponential backoff (GitHub/Docker Hub)
+- Data caching (5-minute TTL)
 - Comprehensive logging
+- Context manager support for proper session cleanup (GitHub/Docker Hub)
+
+The Google Analytics module uses the official `google-analytics-data` Python client library.
