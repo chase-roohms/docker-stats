@@ -13,6 +13,8 @@ This repository fetches statistics from Docker Hub (number of pulls), GitHub (nu
 
 ## Why?
 
+*The root of the problem is that my website is purely static and hosted via GitHub pages. I considered changing this but the added cost of hosting a backend was not worth it to me when I knew I could come up with a viable workaround.*
+
 - **GitHub Stats:** GitHub has a rate limit of 60 request per hour for unauthenticated users, meaning you can not have users directly request your star count from GitHub if you have a substantial amount of projects
 - **Docker Hub Stats:** Docker Hub has a strict CORS policy meaning you cannot redirect your users to get data from there while on your website
 - **Google Analytics:** This one is a bit self explanatory, its a private resource that you cannot (and should not) let unauthenticated users see
