@@ -4,7 +4,38 @@ Automated tracking of statistics for my Docker Hub images, GitHub repositories, 
 
 ## Overview
 
-This repository fetches statistics from Docker Hub, GitHub, and Google Analytics every 6 hours via GitHub Actions and stores them in JSON files. The data is consumed by [chase-roohms.github.io](https://github.com/chase-roohms/chase-roohms.github.io/blob/bc7fab9eca0da81eac0deaeb2ae439d28ac4b5e4/src/utils/projectStats.ts#L58C1-L58C111) to display project metrics.
+This repository fetches statistics from Docker Hub (number of pulls), GitHub (number of stars), and Google Analytics (number of blog post views) every 6 hours via GitHub Actions and stores them in JSON files. The data is consumed by [chase-roohms.github.io](https://github.com/chase-roohms/chase-roohms.github.io) to display [project stats](https://github.com/chase-roohms/chase-roohms.github.io/blob/main/src/utils/projectStats.ts) and [blog metrics](https://github.com/chase-roohms/chase-roohms.github.io/blob/main/src/utils/blogStats.ts).
+
+<div align="center">
+  <img src="images/stats-demo.png" alt="Screenshot of a webpage showing blog views, project stars, and docker hub pulls" width="80%">
+  <p><em>Stats shown on blog and project cards</em></p>
+</div>
+
+## Why?
+
+- **GitHub Stats:** GitHub has a rate limit of 60 request per hour for unauthenticated users, meaning you can not have users directly request your star count from GitHub if you have a substantial amount of projects
+- **Docker Hub Stats:** Docker Hub has a strict CORS policy meaning you cannot redirect your users to get data from there while on your website
+- **Google Analytics:** This one is a bit self explanatory, its a private resource that you cannot (and should not) let unauthenticated users see
+
+### The Old Way
+Direct requests to GitHub would periodically fail due to rate limits, to Docker Hub required a **slow** 3rd party CORS proxy, and to Google Analytics were impossible.
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/dev-stats-old-dark.png"/>
+    <source media="(prefers-color-scheme: light)" srcset="images/dev-stats-old-light.png"/>
+    <img alt="Diagram showing the old way of doing network requests and why it failed" src="images/dev-stats-old-light.png" />
+  </picture>
+</div>
+
+### The New Way
+Every 6 hours this repository grabs the data from the requires sites and stores it in JSON files in this repository. Now every visitor needs to make only 3 requests to GitHub (one for each file) rather than make 2 requests per each project, and 1 request per blog post.
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/dev-stats-new-dark.png"/>
+    <source media="(prefers-color-scheme: light)" srcset="images/dev-stats-new-light.png"/>
+    <img alt="Diagram showing the new way of doing network requests and why it works" src="images/dev-stats-new-light.png" />
+  </picture>
+</div>
 
 ## Features
 
@@ -135,7 +166,7 @@ This is the most secure method as it doesn't require storing service account key
    SERVICE_ACCOUNT="analytics-reader@${PROJECT_ID}.iam.gserviceaccount.com"
    WORKLOAD_IDENTITY_POOL="github-pool"
    WORKLOAD_IDENTITY_PROVIDER="github-provider"
-   REPO="chase-roohms/dev-stats"
+   REPO="your-username/your-dev-stats-repo"
    
    echo "Project ID: ${PROJECT_ID}"
    echo "Project Number: ${PROJECT_NUMBER}"
