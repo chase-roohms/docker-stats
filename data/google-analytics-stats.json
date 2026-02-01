@@ -1,20 +1,20 @@
 {
-  "last_updated": "2026-02-01T00:51:08.457738+00:00",
+  "last_updated": "2026-02-01T06:24:40.915207+00:00",
   "property_id": "516541379",
   "blog_path_prefix": "/blog/",
   "totals": {
     "total_blog_posts": 5,
-    "total_page_views": 255
+    "total_page_views": 263
   },
   "blog_posts": {
     "/blog/benefits-of-dockerization/": {
-      "page_views": 93
+      "page_views": 95
     },
     "/blog/criteria-for-automation/": {
       "page_views": 75
     },
     "/blog/anatomy-of-a-reusable-gha/": {
-      "page_views": 46
+      "page_views": 52
     },
     "/blog/home-lab-setup/": {
       "page_views": 33
